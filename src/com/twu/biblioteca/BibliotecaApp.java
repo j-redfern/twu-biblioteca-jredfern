@@ -19,10 +19,13 @@ public class BibliotecaApp {
         UserValidation userInput = new UserValidation();
         boolean userInputValidate = userInput.validateUser(line);
 
+        ListOfBooks books = new ListOfBooks();
+
         if(userInputValidate){
+
             if(line.contains("customer")) {
-                System.out.print("working");
-                System.exit(0);
+                System.out.print("Here is a list of books available...");
+                books.getBookList();
             }
 
             if(line.contains("employee")) {

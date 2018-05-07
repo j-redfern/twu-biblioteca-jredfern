@@ -24,8 +24,10 @@ public class BibliotecaApp {
         if(userInputValidate){
 
             if(line.contains("customer")) {
-                System.out.print("Here is a list of books available...");
+                System.out.println("Here is a list of books available...");
+                System.out.println("");
                 books.getBookList();
+                System.exit(0);
             }
 
             if(line.contains("employee")) {

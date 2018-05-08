@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.Scanner;
+import java.util.List;
 
 public class BibliotecaApp {
 
@@ -24,22 +25,31 @@ public class BibliotecaApp {
         if(userInputValidate){
 
             if(line.contains("customer")) {
-                System.out.println("Here is a list of books available...");
+
                 System.out.println("");
-                books.getBookList();
-                System.exit(0);
+                System.out.println("Here is a list of books available for rent:");
+                System.out.println("");
+                System.out.println("**********************************************************");
+
+                List<ListOfBooks> currentLibrary =  books.currentBookCollection();
+
+                   for (int i = 0 ; i < currentLibrary.size(); i++) {
+                       System.out.println(currentLibrary.get(i).bookTitle);
+                       System.out.println("By " + currentLibrary.get(i).authorName + ", " + currentLibrary.get(i).yearPublished);
+                       System.out.println("**********************************************************");
+                   }
+
+                   System.out.println("");
+                   System.exit(0);
             }
 
             if(line.contains("employee")) {
                 System.out.print("working");
                 System.exit(0);
             }
-            else {
-                System.out.print("Invalid input");
-                System.exit(0);
-            }
+
         }
-        System.out.print("Invalid input");
+        System.out.print("Invalid input abcde");
         System.exit(0);
     }
 }

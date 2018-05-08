@@ -1,10 +1,11 @@
 package com.twu.biblioteca;
 
-import org.junit.jupiter.api.Test;
-
+import org.junit.jupiter.api.Test ;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.matchers.JUnitMatchers.*;
+
 
 class UserValidationTest {
 
@@ -20,11 +21,11 @@ class UserValidationTest {
     }
 
     @Test
-    void printListOfBooks(){
+    void checkBookCollectionExists(){
         ListOfBooks books = new ListOfBooks();
-        List<String> listOfBooks = books.getBookList();
-        assertEquals("I Was Told There'd Be Cake", listOfBooks.get(0));
-        assertEquals("Do Androids Dream of Electric Sheep?", listOfBooks.get(1));
-        assertEquals("The Hitchhiker's Guide to the Galaxy", listOfBooks.get(2));
+        List<ListOfBooks> listOfBooks = books.currentBookCollection();
+        assertEquals("Do Androids Dream of Electric Sheep?", listOfBooks.get(1).bookTitle);
+        assertEquals("Philip K. Dick", listOfBooks.get(1).authorName);
+        assertEquals("1996", listOfBooks.get(1).yearPublished);
     }
 }

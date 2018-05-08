@@ -3,8 +3,6 @@ package com.twu.biblioteca;
 import org.junit.jupiter.api.Test ;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 
 class DataInputValidationTest {
 
@@ -30,6 +28,4 @@ class DataInputValidationTest {
         assertEquals(false, invalidValidate);
 
     }
-
-
 }

@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 import java.util.List;
 import java.util.ArrayList;
 
-
 public class ListOfBooks {
 
     String bookTitle = "";

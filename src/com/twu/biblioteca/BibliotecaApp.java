@@ -29,14 +29,19 @@ public class BibliotecaApp {
                 System.out.println("");
                 System.out.println("Here is a list of books available for rent:");
                 System.out.println("");
-                System.out.println("**********************************************************");
+                System.out.println("  ==============================================================");
+                System.out.println("  BOOK TITLE                                                  ");
+                System.out.println("  AUTHOR | YEAR PUBLISHED                                      ");
+                System.out.println("  ==============================================================");
 
                 List<ListOfBooks> currentLibrary =  books.currentBookCollection();
 
                    for (int i = 0 ; i < currentLibrary.size(); i++) {
-                       System.out.println(currentLibrary.get(i).bookTitle);
-                       System.out.println("By " + currentLibrary.get(i).authorName + ", " + currentLibrary.get(i).yearPublished);
-                       System.out.println("**********************************************************");
+
+                       System.out.println("");
+                       System.out.println("  " + currentLibrary.get(i).bookTitle);
+                       System.out.println("  By " + currentLibrary.get(i).authorName + " | " + currentLibrary.get(i).yearPublished);
+                       System.out.println("  ______________________________________________________________");
                    }
 
                    System.out.println("");

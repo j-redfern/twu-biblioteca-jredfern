@@ -21,12 +21,20 @@ public class MainMenu {
                 System.out.println("Here is a list of books available for rent:");
                 System.out.println("");
                 library.printCurrentBookCollection();
+                validOptionInput = "no";
+                System.out.println("");
+                System.out.println("Type quit to exit Main Menu");
+                break;
+
+            case "quit":
                 validOptionInput = "yes";
                 break;
 
             default:
                 validOptionInput = "no";
                 System.out.println("Select a valid option!");
+                System.out.println("1. List books (books) ");
+                System.out.println("2. To Quit (quit) ");
         }
     }
     }

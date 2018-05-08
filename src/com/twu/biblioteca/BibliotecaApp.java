@@ -34,6 +34,7 @@ public class BibliotecaApp {
                 System.out.println("");
                 System.out.println("To select the option, type the word(s) in the bracket");
                 System.out.println("1. List books (books) ");
+                System.out.println("2. To Quit (quit) ");
 
                 String inputIsValid = "no";
 
@@ -49,9 +50,8 @@ public class BibliotecaApp {
                         MainMenu menuOption = new MainMenu(books);
                         menuOption.executeOption(lineTwo);
                         inputIsValid = menuOption.validOptionInput;
-
                     } else {
-                            System.out.println("Select a valid option!");
+                            inputIsValid = "yes";
                     }
                 }
             }

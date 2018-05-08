@@ -11,7 +11,13 @@ class MainMenuTest {
         String optionChoice = "books";
         MainMenu test = new MainMenu(list);
         test.executeOption(optionChoice);
-        assertEquals("yes",test.validOptionInput);
+        assertEquals("no",test.validOptionInput);
+
+        ListOfBooks list1 = new ListOfBooks();
+        String optionChoice1 = "quit";
+        MainMenu test1 = new MainMenu(list1);
+        test1.executeOption(optionChoice1);
+        assertEquals("yes",test1.validOptionInput);
 
         ListOfBooks newList = new ListOfBooks();
         String invalidOptionChoice = "hello";

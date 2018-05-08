@@ -17,40 +17,45 @@ public class BibliotecaApp {
         input.hasNext();
         String line = input.nextLine().toLowerCase();
 
-        UserValidation userInput = new UserValidation();
-        boolean userInputValidate = userInput.validateUser(line);
+        DataInputValidation userInput = new DataInputValidation();
+        boolean userInputValidate = userInput.validateDataInput(line);
 
-        ListOfBooks books = new ListOfBooks();
 
         if(userInputValidate){
 
             if(line.contains("customer")) {
 
+                ListOfBooks books = new ListOfBooks();
+
+                System.out.println("---------------------------------");
+                System.out.println("           Main Menu");
+                System.out.println("---------------------------------");
+
                 System.out.println("");
-                System.out.println("Here is a list of books available for rent:");
-                System.out.println("");
-                System.out.println("  ==============================================================");
-                System.out.println("  BOOK TITLE                                                  ");
-                System.out.println("  AUTHOR | YEAR PUBLISHED                                      ");
-                System.out.println("  ==============================================================");
+                System.out.println("To select the option, type the word(s) in the bracket");
+                System.out.println("1. List of books (books) ");
 
-                List<ListOfBooks> currentLibrary =  books.currentBookCollection();
+                input.hasNext();
+                String lineTwo = input.nextLine().toLowerCase();
 
-                   for (int i = 0 ; i < currentLibrary.size(); i++) {
+                DataInputValidation mainMenuInput = new DataInputValidation();
+                boolean mainMenuInputValidate = mainMenuInput.validateDataInput(lineTwo);
 
-                       System.out.println("");
-                       System.out.println("  " + currentLibrary.get(i).bookTitle);
-                       System.out.println("  By " + currentLibrary.get(i).authorName + " | " + currentLibrary.get(i).yearPublished);
-                       System.out.println("  ______________________________________________________________");
-                   }
+                if (mainMenuInputValidate) {
 
-                   System.out.println("");
-                   System.exit(0);
+                    System.out.println("");
+                    System.out.println("Here is a list of books available for rent:");
+                    System.out.println("");
+
+                    MainMenu menuOption = new MainMenu(books);
+                    menuOption.executeOption(lineTwo);
+                    System.exit(0);
+                }
             }
 
             if(line.contains("employee")) {
-                System.out.print("working");
-                System.exit(0);
+                    System.out.print("working");
+                    System.exit(0);
             }
 
         }

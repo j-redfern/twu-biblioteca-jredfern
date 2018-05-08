@@ -1,7 +1,8 @@
 package com.twu.biblioteca;
 
-public class UserValidation {
-    public boolean validateUser(String input){
+public class DataInputValidation {
+
+    public boolean validateDataInput(String input){
 
         try
         {

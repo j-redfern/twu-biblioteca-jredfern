@@ -10,8 +10,9 @@ public class ListOfBooks {
     String yearPublished = "";
     List<ListOfBooks> bookList;
 
-    public ListOfBooks(){
 
+    public ListOfBooks(){
+        this.currentBookCollection();
     }
 
     public ListOfBooks(String title, String author, String year) {
@@ -22,7 +23,7 @@ public class ListOfBooks {
 
     public List<ListOfBooks> currentBookCollection(){
 
-        List<ListOfBooks> bookList = new ArrayList<ListOfBooks>();
+        bookList = new ArrayList<>();
 
         ListOfBooks bookList1 = new ListOfBooks("I Was Told There'd Be Cake", "Sloane Crosley", "2008");
         ListOfBooks bookList2 = new ListOfBooks("Do Androids Dream of Electric Sheep?", "Philip K. Dick", "1996");
@@ -39,5 +40,22 @@ public class ListOfBooks {
     return bookList;
     };
 
+    public List<ListOfBooks> printCurrentBookCollection(){
+
+        System.out.println("  ==============================================================");
+        System.out.println("  BOOK TITLE                                                  ");
+        System.out.println("  AUTHOR | YEAR PUBLISHED                                      ");
+        System.out.println("  ==============================================================");
+
+        for (int i = 0 ; i < bookList.size(); i++) {
+
+            System.out.println("");
+            System.out.println("  " + bookList.get(i).bookTitle);
+            System.out.println("  By " + bookList.get(i).authorName + " | " + bookList.get(i).yearPublished);
+            System.out.println("  ______________________________________________________________");
+        }
+        System.out.println("");
+        return bookList;
+    }
 
 }

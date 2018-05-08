@@ -33,23 +33,26 @@ public class BibliotecaApp {
 
                 System.out.println("");
                 System.out.println("To select the option, type the word(s) in the bracket");
-                System.out.println("1. List of books (books) ");
+                System.out.println("1. List books (books) ");
 
-                input.hasNext();
-                String lineTwo = input.nextLine().toLowerCase();
+                String inputIsValid = "no";
 
-                DataInputValidation mainMenuInput = new DataInputValidation();
-                boolean mainMenuInputValidate = mainMenuInput.validateDataInput(lineTwo);
+                while(inputIsValid == "no"){
 
-                if (mainMenuInputValidate) {
+                    input.hasNext();
+                    String lineTwo = input.nextLine().toLowerCase();
 
-                    System.out.println("");
-                    System.out.println("Here is a list of books available for rent:");
-                    System.out.println("");
+                    DataInputValidation mainMenuInput = new DataInputValidation();
+                    boolean mainMenuInputValidate = mainMenuInput.validateDataInput(lineTwo);
 
-                    MainMenu menuOption = new MainMenu(books);
-                    menuOption.executeOption(lineTwo);
-                    System.exit(0);
+                    if(mainMenuInputValidate) {
+                        MainMenu menuOption = new MainMenu(books);
+                        menuOption.executeOption(lineTwo);
+                        inputIsValid = menuOption.validOptionInput;
+
+                    } else {
+                            System.out.println("Select a valid option!");
+                    }
                 }
             }
 
@@ -58,8 +61,9 @@ public class BibliotecaApp {
                     System.exit(0);
             }
 
+        } else {
+            System.out.print("Invalid input abcde");
+            System.exit(0);
         }
-        System.out.print("Invalid input abcde");
-        System.exit(0);
     }
 }

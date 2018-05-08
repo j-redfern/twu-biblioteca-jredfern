@@ -4,6 +4,7 @@ public class MainMenu {
 
     public String optionSelected;
     public ListOfBooks library;
+    public String validOptionInput;
 
 
     public MainMenu (ListOfBooks bookObject){
@@ -16,11 +17,16 @@ public class MainMenu {
 
         switch(optionSelected){
             case "books":
+                System.out.println("");
+                System.out.println("Here is a list of books available for rent:");
+                System.out.println("");
                 library.printCurrentBookCollection();
+                validOptionInput = "yes";
                 break;
 
             default:
-                System.out.println("Invalid option selection");
+                validOptionInput = "no";
+                System.out.println("Select a valid option!");
         }
     }
     }

@@ -49,8 +49,13 @@ public class BibliotecaApp {
                         menuOption.executeOption(lineTwo);
                         inputToContinue = menuOption.InputToContinue;
                     } else {
+                        inputToContinue = "no";
                         System.exit(0);
                     }
+                }
+
+                if(inputToContinue == "quit") {
+                    System.exit(0);
                 }
 
                 input.hasNext();
@@ -73,11 +78,6 @@ public class BibliotecaApp {
                         System.exit(0);
                     }
                 }
-            }
-
-            if(line.contains("employee")) {
-                System.out.print("working");
-                System.exit(0);
             }
 
             else {

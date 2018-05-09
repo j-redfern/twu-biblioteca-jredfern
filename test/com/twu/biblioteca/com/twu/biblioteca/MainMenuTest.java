@@ -17,7 +17,7 @@ class MainMenuTest {
         String optionChoice1 = "quit";
         MainMenu test1 = new MainMenu(list1);
         test1.executeOption(optionChoice1);
-        assertEquals("no",test1.InputToContinue);
+        assertEquals("quit",test1.InputToContinue);
 
         ListOfBooks list2 = new ListOfBooks();
         String invalidOptionChoice = "out";

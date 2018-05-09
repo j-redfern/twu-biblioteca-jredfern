@@ -13,19 +13,33 @@ public class CheckOutABook {
        library = books;
    }
 
-   public List<ListOfBooks> checkOutABook (int bookNumber){
+   public List<ListOfBooks> checkOutABook (int bookNumber) {
 
        checkedOutBooks = bookNumber;
 
-      for(int i = 0 ; i < library.bookList.size(); i++){
-            if(library.bookList.get(i).bookNumber == (checkedOutBooks)){
-                library.bookList.remove(i);
+       boolean containsBook = false;
+
+           for (ListOfBooks library: library.bookList) {
+               if (library.bookNumber == checkedOutBooks) {
+                   containsBook = true;
+               }
+           }
+           System.out.println(containsBook);
+           if(containsBook){
+               for(int i = 0; i < bookNumber; i++){
+                   if (library.bookList.get(i).bookNumber == (checkedOutBooks)) {
+                       library.bookList.remove(i);
+                       System.out.println("");
+                       System.out.println("Thank you! Enjoy the book");
+                   }
+               }
             }
-      }
-       System.out.println("");
-       System.out.println("Thank you! Enjoy the book");
-       library.printCurrentBookCollection();
+            else {
+               System.out.println("");
+               System.out.println("That book is not available");
+               checkOutMenu = "yes";
+             }
+
        return library.bookList;
    }
-
 }

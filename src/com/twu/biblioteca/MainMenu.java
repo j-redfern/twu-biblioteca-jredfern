@@ -46,12 +46,6 @@ public class MainMenu {
         return InputToContinue;
     }
 
-    public String optionMenu4(){
-        System.out.println("2.Type book number to check out book (E.g  Type (1) for \"I Was Told There'd Be Cake\") ");
-        InputToContinue = "yes";
-        return InputToContinue;
-    }
-
     public void executeOption(String optionChoice){
 
         optionSelected = optionChoice;

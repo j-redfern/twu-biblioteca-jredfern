@@ -65,13 +65,14 @@ public class BibliotecaApp {
                 DataInputValidation checkoutInput = new DataInputValidation();
                 boolean checkoutInputValidate = checkoutInput.validateNumericDataInput(lineThree);
 
-                inputToContinue = "yes"; // yes
+                inputToContinue = "yes";
 
                 if(inputToContinue == "yes") {
                     if (checkoutInputValidate) {
                         CheckOutABook checkOut = new CheckOutABook(books);
                         checkOut.checkOutABook(Integer.parseInt(lineThree));
                         checkOut.checkOutMenu = inputToContinue;
+
                         System.exit(0);
 
                     } else {

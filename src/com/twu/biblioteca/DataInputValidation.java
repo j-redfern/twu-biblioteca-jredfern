@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 public class DataInputValidation {
 
-    public boolean validateDataInput(String input){
+    public boolean validateStringDataInput(String input){
 
         try
         {
@@ -13,4 +13,18 @@ public class DataInputValidation {
         }
         return false;
     }
+
+    public boolean validateNumericDataInput(String input){
+
+        try
+        {
+            Integer.parseInt(input);
+        }
+        catch(NumberFormatException ex ){
+            return false;
+        }
+        return true;
+    }
+
+
 }

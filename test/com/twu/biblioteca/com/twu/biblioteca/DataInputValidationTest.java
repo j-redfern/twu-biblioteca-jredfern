@@ -7,25 +7,36 @@ import static org.junit.jupiter.api.Assertions.*;
 class DataInputValidationTest {
 
     @Test
-    void validatingUserDataInput(){
+    void validatingUserDataInputIsString() {
         DataInputValidation user = new DataInputValidation();
 
-        boolean validate = user.validateDataInput("customer");
-        assertEquals(true, validate);
+        boolean validateStringInputForUser = user.validateStringDataInput("customer");
+        assertEquals(true, validateStringInputForUser);
 
-        boolean invalidValidate = user.validateDataInput("1");
+        boolean invalidValidate = user.validateStringDataInput("1");
         assertEquals(false, invalidValidate);
     }
 
     @Test
-    void  validatingMainMenuDataInput(){
+    void validatingMainMenuDataInputIsString() {
         DataInputValidation mainMenu = new DataInputValidation();
 
-        boolean validate = mainMenu.validateDataInput("books");
+        boolean validate = mainMenu.validateStringDataInput("books");
         assertEquals(true, validate);
 
-        boolean invalidValidate = mainMenu.validateDataInput("1");
+        boolean invalidValidate = mainMenu.validateStringDataInput("1");
         assertEquals(false, invalidValidate);
 
+    }
+
+    @Test
+    void validatingCheckOutBookDataInputIsNumeric(){
+        DataInputValidation checkOut = new DataInputValidation();
+
+        boolean validate = checkOut.validateNumericDataInput("1");
+        assertEquals(true, validate);
+
+        boolean invalidValidate = checkOut.validateNumericDataInput("books");
+        assertEquals(false, invalidValidate);
     }
 }

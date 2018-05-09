@@ -11,18 +11,25 @@ class MainMenuTest {
         String optionChoice = "books";
         MainMenu test = new MainMenu(list);
         test.executeOption(optionChoice);
-        assertEquals("no",test.validOptionInput);
+        assertEquals("yes",test.InputToContinue);
 
         ListOfBooks list1 = new ListOfBooks();
         String optionChoice1 = "quit";
         MainMenu test1 = new MainMenu(list1);
         test1.executeOption(optionChoice1);
-        assertEquals("yes",test1.validOptionInput);
+        assertEquals("no",test1.InputToContinue);
 
-        ListOfBooks newList = new ListOfBooks();
-        String invalidOptionChoice = "hello";
-        MainMenu newTest = new MainMenu(newList);
-        newTest.executeOption(invalidOptionChoice);
-        assertEquals("no",newTest.validOptionInput);
+        ListOfBooks list2 = new ListOfBooks();
+        String invalidOptionChoice = "out";
+        MainMenu test2 = new MainMenu(list2);
+        test2.executeOption(invalidOptionChoice);
+        assertEquals("no",test2.InputToContinue);
+
+        ListOfBooks list3 = new ListOfBooks();
+        String optionChoice3 = "back";
+        MainMenu test3 = new MainMenu(list3);
+        test3.executeOption(optionChoice3);
+        assertEquals("yes",test3.InputToContinue);
+
     }
 }

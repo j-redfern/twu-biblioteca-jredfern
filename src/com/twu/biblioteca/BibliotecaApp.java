@@ -18,47 +18,64 @@ public class BibliotecaApp {
         String line = input.nextLine().toLowerCase();
 
         DataInputValidation userInput = new DataInputValidation();
-        boolean userInputValidate = userInput.validateDataInput(line);
+        boolean userInputValidate = userInput.validateStringDataInput(line);
 
 
         if(userInputValidate){
 
+            System.out.println("---------------------------------");
+            System.out.println("           Main Menu");
+            System.out.println("---------------------------------");
+
+            ListOfBooks books = new ListOfBooks();
+
             if(line.contains("customer")) {
-
-                ListOfBooks books = new ListOfBooks();
-
-                System.out.println("---------------------------------");
-                System.out.println("           Main Menu");
-                System.out.println("---------------------------------");
-
                 System.out.println("");
                 System.out.println("To select the option, type the word(s) in the bracket");
                 System.out.println("1. List books (books) ");
                 System.out.println("2. To Quit (quit) ");
 
-                String inputIsValid = "no";
+                String inputToContinue = "yes";
 
-                while(inputIsValid == "no"){
+                while(inputToContinue == "yes"){
 
                     input.hasNext();
                     String lineTwo = input.nextLine().toLowerCase();
 
                     DataInputValidation mainMenuInput = new DataInputValidation();
-                    boolean mainMenuInputValidate = mainMenuInput.validateDataInput(lineTwo);
+                    boolean mainMenuInputValidate = mainMenuInput.validateStringDataInput(lineTwo);
 
                     if(mainMenuInputValidate) {
                         MainMenu menuOption = new MainMenu(books);
                         menuOption.executeOption(lineTwo);
-                        inputIsValid = menuOption.validOptionInput;
+                        inputToContinue = menuOption.InputToContinue;
                     } else {
-                            inputIsValid = "yes";
+                        inputToContinue = "no";
+                    }
+                }
+
+                input.hasNext();
+                String lineThree = input.nextLine();
+
+                DataInputValidation checkoutInput = new DataInputValidation();
+                boolean checkoutInputValidate = checkoutInput.validateNumericDataInput(lineThree);
+
+                inputToContinue = "yes";
+
+                while(inputToContinue == "yes") {
+                    if (checkoutInputValidate) {
+                        System.out.println("working");
+                        System.exit(0);
+                    } else {
+                        System.out.print("Invalid input. Try again");
+                        System.exit(0);
                     }
                 }
             }
 
             if(line.contains("employee")) {
-                    System.out.print("working");
-                    System.exit(0);
+                System.out.print("working");
+                System.exit(0);
             }
 
         } else {

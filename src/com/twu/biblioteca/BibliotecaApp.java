@@ -49,8 +49,9 @@ public class BibliotecaApp {
                         menuOption.executeOption(lineTwo);
                         inputToContinue = menuOption.InputToContinue;
                     } else {
-                        inputToContinue = "no";
-                        System.exit(0);
+                        inputToContinue = "yes";
+                        System.out.println("Select a valid option");
+                        menuOption.optionMenu2();
                     }
                 }
 

@@ -7,6 +7,7 @@ public class ListOfBooks {
     String bookTitle = "";
     String authorName = "";
     String yearPublished = "";
+    int bookNumber;
     List<ListOfBooks> bookList;
 
 
@@ -14,21 +15,23 @@ public class ListOfBooks {
         this.currentBookCollection();
     }
 
-    public ListOfBooks(String title, String author, String year) {
-    bookTitle = title;
-    authorName = author;
-    yearPublished = year;
+    public ListOfBooks(int bookOrder, String title, String author, String year) {
+        bookNumber = bookOrder;
+        bookTitle = title;
+        authorName = author;
+        yearPublished = year;
+
     }
 
     public List<ListOfBooks> currentBookCollection(){
 
         bookList = new ArrayList<>();
 
-        ListOfBooks bookList1 = new ListOfBooks("I Was Told There'd Be Cake", "Sloane Crosley", "2008");
-        ListOfBooks bookList2 = new ListOfBooks("Do Androids Dream of Electric Sheep?", "Philip K. Dick", "1996");
-        ListOfBooks bookList3 = new ListOfBooks("The Hitchhiker's Guide to the Galaxy", "Douglas Adams  ", "2017");
-        ListOfBooks bookList4 = new ListOfBooks("The Hollow Chocolate Bunnies of the Apocalypse", "Robert Rankin", "2003");
-        ListOfBooks bookList5 = new ListOfBooks("To Kill a Mockingbird", "Harper Lee", "2006");
+        ListOfBooks bookList1 = new ListOfBooks(1, "Sloane Crosley", "2008");
+        ListOfBooks bookList2 = new ListOfBooks(2,"Do Androids Dream of Electric Sheep?", "Philip K. Dick", "1996");
+        ListOfBooks bookList3 = new ListOfBooks(3,"The Hitchhiker's Guide to the Galaxy", "Douglas Adams  ", "2017");
+        ListOfBooks bookList4 = new ListOfBooks(4,"The Hollow Chocolate Bunnies of the Apocalypse", "Robert Rankin", "2003");
+        ListOfBooks bookList5 = new ListOfBooks(5,"To Kill a Mockingbird", "Harper Lee", "2006");
 
     bookList.add(bookList1);
     bookList.add(bookList2);
@@ -49,8 +52,8 @@ public class ListOfBooks {
         for (int i = 0 ; i < bookList.size(); i++) {
 
             System.out.println("");
-            System.out.println("  " + bookList.get(i).bookTitle);
-            System.out.println("  By " + bookList.get(i).authorName + " | " + bookList.get(i).yearPublished);
+            System.out.println("  " + bookList.get(i).bookNumber + ". " + bookList.get(i).bookTitle);
+            System.out.println("    By " + bookList.get(i).authorName + " | " + bookList.get(i).yearPublished);
             System.out.println("  ______________________________________________________________");
         }
         System.out.println("");

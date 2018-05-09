@@ -58,6 +58,7 @@ public class MainMenu {
 
         switch(optionSelected){
             case "books":
+                System.out.println("");
                 System.out.println("Here is a list of books available for rent:");
                 library.printCurrentBookCollection();
                 this.optionMenu2();
@@ -69,6 +70,8 @@ public class MainMenu {
                 break;
 
             case "out":
+                System.out.println("");
+                library.printCurrentBookCollection();
                 System.out.println("Please type the book number you wish to check out");
                 InputToContinue = "no";
                 break;

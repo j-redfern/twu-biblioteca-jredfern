@@ -20,22 +20,22 @@ public class BibliotecaApp {
         DataInputValidation userInput = new DataInputValidation();
         boolean userInputValidate = userInput.validateStringDataInput(line);
 
-
         if(userInputValidate){
-
-            System.out.println("---------------------------------");
-            System.out.println("           Main Menu");
-            System.out.println("---------------------------------");
 
             ListOfBooks books = new ListOfBooks();
 
             if(line.contains("customer")) {
+                System.out.println("---------------------------------");
+                System.out.println("           Main Menu");
+                System.out.println("---------------------------------");
                 System.out.println("");
                 System.out.println("To select the option, type the word(s) in the bracket");
                 System.out.println("1. List books (books) ");
                 System.out.println("2. To Quit (quit) ");
 
                 String inputToContinue = "yes";
+
+                MainMenu menuOption = new MainMenu(books);
 
                 while(inputToContinue == "yes"){
 
@@ -46,7 +46,6 @@ public class BibliotecaApp {
                     boolean mainMenuInputValidate = mainMenuInput.validateStringDataInput(lineTwo);
 
                     if(mainMenuInputValidate) {
-                        MainMenu menuOption = new MainMenu(books);
                         menuOption.executeOption(lineTwo);
                         inputToContinue = menuOption.InputToContinue;
                     } else {
@@ -60,12 +59,15 @@ public class BibliotecaApp {
                 DataInputValidation checkoutInput = new DataInputValidation();
                 boolean checkoutInputValidate = checkoutInput.validateNumericDataInput(lineThree);
 
-                inputToContinue = "yes";
+                inputToContinue = "yes"; // yes
 
-                while(inputToContinue == "yes") {
+                if(inputToContinue == "yes") {
                     if (checkoutInputValidate) {
-                        System.out.println("working");
+                        CheckOutABook checkOut = new CheckOutABook(books);
+                        checkOut.checkOutABook(Integer.parseInt(lineThree));
+                        checkOut.checkOutMenu = inputToContinue;
                         System.exit(0);
+
                     } else {
                         System.out.print("Invalid input. Try again");
                         System.exit(0);
@@ -78,7 +80,12 @@ public class BibliotecaApp {
                 System.exit(0);
             }
 
-        } else {
+            else {
+                System.out.print("Invalid user input");
+                System.exit(0);
+            }
+        }
+        else {
             System.out.print("Invalid input abcde");
             System.exit(0);
         }

@@ -44,17 +44,17 @@ public class ListOfBooks {
 
     public List<ListOfBooks> printCurrentBookCollection(){
 
-        System.out.println("  ==============================================================");
-        System.out.println("  BOOK TITLE                                                  ");
-        System.out.println("  AUTHOR | YEAR PUBLISHED                                      ");
-        System.out.println("  ==============================================================");
+        System.out.println("  ========================================================================");
+        System.out.println("  BOOK NUMBER | BOOK TITLE  | AUTHOR | YEAR PUBLISHED");
+        System.out.println("  ========================================================================");
 
         for (int i = 0 ; i < bookList.size(); i++) {
 
             System.out.println("");
-            System.out.println("  " + bookList.get(i).bookNumber + ". " + bookList.get(i).bookTitle);
-            System.out.println("    By " + bookList.get(i).authorName + " | " + bookList.get(i).yearPublished);
-            System.out.println("  ______________________________________________________________");
+            System.out.println("  " + bookList.get(i).bookNumber + ". " + bookList.get(i).bookTitle + " | " + bookList.get(i).authorName + " | " + bookList.get(i).yearPublished);
+           // System.out.println("  " + bookList.get(i).bookNumber + ". " + bookList.get(i).bookTitle);
+            //System.out.println("    By " + bookList.get(i).authorName + " | " + bookList.get(i).yearPublished);
+            System.out.println("  ________________________________________________________________________");
         }
         System.out.println("");
         return bookList;

@@ -27,7 +27,7 @@ public class ListOfBooks {
 
         bookList = new ArrayList<>();
 
-        ListOfBooks bookList1 = new ListOfBooks(1, "Sloane Crosley", "2008");
+        ListOfBooks bookList1 = new ListOfBooks(1,"I Was Told There'd Be Cake", "Sloane Crosley", "2008");
         ListOfBooks bookList2 = new ListOfBooks(2,"Do Androids Dream of Electric Sheep?", "Philip K. Dick", "1996");
         ListOfBooks bookList3 = new ListOfBooks(3,"The Hitchhiker's Guide to the Galaxy", "Douglas Adams  ", "2017");
         ListOfBooks bookList4 = new ListOfBooks(4,"The Hollow Chocolate Bunnies of the Apocalypse", "Robert Rankin", "2003");

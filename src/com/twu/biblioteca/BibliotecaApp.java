@@ -49,7 +49,7 @@ public class BibliotecaApp {
                         menuOption.executeOption(lineTwo);
                         inputToContinue = menuOption.InputToContinue;
                     } else {
-                        inputToContinue = "no";
+                        System.exit(0);
                     }
                 }
 

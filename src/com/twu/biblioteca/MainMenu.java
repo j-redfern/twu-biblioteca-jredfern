@@ -77,7 +77,7 @@ public class MainMenu {
                 break;
 
             case "quit":
-                InputToContinue = "no";
+                System.exit(0);
                 break;
 
             default:

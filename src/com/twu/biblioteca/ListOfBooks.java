@@ -10,12 +10,11 @@ public class ListOfBooks {
     int bookNumber;
     List<ListOfBooks> bookList;
 
-
     public ListOfBooks(){
         this.currentBookCollection();
     }
 
-    public ListOfBooks(int bookOrder, String title, String author, String year) {
+    public ListOfBooks(int bookOrder, String title, String author, String year ) {
         bookNumber = bookOrder;
         bookTitle = title;
         authorName = author;
@@ -52,8 +51,6 @@ public class ListOfBooks {
 
             System.out.println("");
             System.out.println("  " + bookList.get(i).bookNumber + ". " + bookList.get(i).bookTitle + " | " + bookList.get(i).authorName + " | " + bookList.get(i).yearPublished);
-           // System.out.println("  " + bookList.get(i).bookNumber + ". " + bookList.get(i).bookTitle);
-            //System.out.println("    By " + bookList.get(i).authorName + " | " + bookList.get(i).yearPublished);
             System.out.println("  ________________________________________________________________________");
         }
         System.out.println("");

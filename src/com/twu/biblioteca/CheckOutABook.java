@@ -24,7 +24,7 @@ public class CheckOutABook {
       }
        System.out.println("");
        System.out.println("Thank you! Enjoy the book");
-
+       library.printCurrentBookCollection();
        return library.bookList;
    }
 

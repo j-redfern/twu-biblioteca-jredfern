@@ -34,15 +34,10 @@ public class MainMenu {
     }
 
     public String optionMenu3(){
-        System.out.println("---------------------------------");
-        System.out.println("           Main Menu");
-        System.out.println("---------------------------------");
         System.out.println("");
-        System.out.println("To select the option, type the word(s) in the bracket");
-        System.out.println("");
-        System.out.println("1. Check out book (out) ");
-        System.out.println("2. To Quit (quit) ");
-        InputToContinue = "yes";
+        library.printCurrentBookCollection();
+        System.out.println("Please type the book number you wish to check out");
+        InputToContinue = "tryAgain";
         return InputToContinue;
     }
 
@@ -64,9 +59,7 @@ public class MainMenu {
                 break;
 
             case "out":
-                System.out.println("");
-                library.printCurrentBookCollection();
-                System.out.println("Please type the book number you wish to check out");
+                this.optionMenu3();
                 InputToContinue = "no";
                 break;
 

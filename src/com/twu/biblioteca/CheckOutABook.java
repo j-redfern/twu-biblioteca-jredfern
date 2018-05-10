@@ -1,13 +1,13 @@
 package com.twu.biblioteca;
 
 import java.util.List;
-import org.junit.jupiter.api.Test ;
 
 public class CheckOutABook {
 
    public ListOfBooks library;
    public int checkedOutBooks;
    public String checkOutMenu;
+   public MainMenu menuOptions;
 
    public CheckOutABook(ListOfBooks books){
        library = books;
@@ -24,7 +24,7 @@ public class CheckOutABook {
                    containsBook = true;
                }
            }
-           System.out.println(containsBook);
+
            if(containsBook){
                for(int i = 0; i < bookNumber; i++){
                    if (library.bookList.get(i).bookNumber == (checkedOutBooks)) {
@@ -37,7 +37,9 @@ public class CheckOutABook {
             else {
                System.out.println("");
                System.out.println("That book is not available");
-               checkOutMenu = "yes";
+               checkOutMenu = "tryAgain";
+               System.out.println("");
+               System.out.println("Please type the book number you wish to check out");
              }
 
        return library.bookList;

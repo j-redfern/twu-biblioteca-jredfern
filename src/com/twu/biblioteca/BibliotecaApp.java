@@ -37,7 +37,7 @@ public class BibliotecaApp {
 
                 MainMenu menuOption = new MainMenu(books);
 
-                while(inputToContinue == "yes"){
+                while (inputToContinue == "yes") {
 
                     input.hasNext();
                     String lineTwo = input.nextLine().toLowerCase();
@@ -45,7 +45,7 @@ public class BibliotecaApp {
                     DataInputValidation mainMenuInput = new DataInputValidation();
                     boolean mainMenuInputValidate = mainMenuInput.validateStringDataInput(lineTwo);
 
-                    if(mainMenuInputValidate) {
+                    if (mainMenuInputValidate) {
                         menuOption.executeOption(lineTwo);
                         inputToContinue = menuOption.InputToContinue;
                     } else {
@@ -55,7 +55,7 @@ public class BibliotecaApp {
                     }
                 }
 
-                if(inputToContinue == "quit") {
+                if (inputToContinue == "quit") {
                     System.exit(0);
                 }
 
@@ -67,28 +67,47 @@ public class BibliotecaApp {
 
                 inputToContinue = "yes";
 
-                if(inputToContinue == "yes") {
-                    if (checkoutInputValidate) {
-                        CheckOutABook checkOut = new CheckOutABook(books);
-                        checkOut.checkOutABook(Integer.parseInt(lineThree));
-                        checkOut.checkOutMenu = inputToContinue;
+                while (inputToContinue != null) {
 
-                        System.exit(0);
+                    if (inputToContinue == "yes") {
+                        if (checkoutInputValidate) {
+                            CheckOutABook checkOut = new CheckOutABook(books);
+                            checkOut.checkOutABook(Integer.parseInt(lineThree));
+                            inputToContinue = checkOut.checkOutMenu ;
+                        }
+                        else {
+                            System.out.print("Invalid input. Try again");
+                            System.exit(0);
+                        }
+                    }
 
-                    } else {
-                        System.out.print("Invalid input. Try again");
-                        System.exit(0);
+                    if (inputToContinue == "tryAgain") {
+                        input.hasNext();
+                        String bookNumberInput = input.nextLine();
+
+                        DataInputValidation bookNoInput = new DataInputValidation();
+                        boolean bookNoInputValidate = bookNoInput.validateNumericDataInput(bookNumberInput);
+
+                        if (bookNoInputValidate) {
+                            CheckOutABook checkOut = new CheckOutABook(books);
+                            checkOut.checkOutABook(Integer.parseInt(bookNumberInput));
+                            inputToContinue = checkOut.checkOutMenu;
+
+                        } else {
+                            System.out.print("Invalid input. Try again");
+                            System.exit(0);
+                        }
                     }
                 }
             }
+            else{
+                    System.out.print("Invalid user input");
+                    System.exit(0);
+                }
 
-            else {
-                System.out.print("Invalid user input");
-                System.exit(0);
-            }
         }
         else {
-            System.out.print("Invalid input abcde");
+            System.out.print("Invalid input");
             System.exit(0);
         }
     }

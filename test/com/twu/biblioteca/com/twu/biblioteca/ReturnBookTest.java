@@ -5,12 +5,13 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 class ReturnBookTest {
+    @Test
     void CheckCurrentBookCollectionIncrementsBy1() {
         ListOfBooks books = new ListOfBooks();
         CheckOutABook checkoutAbook = new CheckOutABook(books);
         checkoutAbook.checkOutABook(3);
         ReturnBook test = new ReturnBook(checkoutAbook);
-        List<ListOfBooks> result = test.returnABook(3);
-        assertEquals(5, result.size());
+        CheckOutABook result = test.returnABook(3);
+        assertEquals(5, result.library.bookList.size());
     }
 }

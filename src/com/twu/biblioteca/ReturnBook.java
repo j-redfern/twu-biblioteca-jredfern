@@ -7,33 +7,44 @@ public class ReturnBook {
     public int bookNumber;
     public CheckOutABook newLibrary;
     public ListOfBooks originalLibraryList;
-    public int bookNumberReturned;
 
     public ReturnBook(CheckOutABook bookCollection) {
         newLibrary = bookCollection;
     }
 
-    public List<ListOfBooks> returnABook (int bookNumberInput){
+    public CheckOutABook returnABook (int bookNumberInput){
+
         bookNumber = bookNumberInput;
 
-        boolean containsBook = false;
+        boolean containsBook = true;
+        //if in original library
+        // add to checkout library (& sort order)
 
-        for (ListOfBooks library: originalLibraryList.bookList) {
-            if (bookNumber == library.bookNumber) {
-                containsBook = true;
-            }
-        }
+//        for (ListOfBooks library: originalLibraryList.bookList) {
+//            System.out.println("enter contain for loop");
+//
+//            if (library.bookNumber == bookNumber ) {
+//                System.out.println(bookNumber);
+//               containsBook = true;
+//            }
+//        }
 
-        if(containsBook){
-            for(int i = 0; i < bookNumber; i++){
-                if (newLibrary.library.bookList.get(i).bookNumber != (bookNumber)) {
-                    newLibrary.library.bookList.add(originalLibraryList.bookList.get(i));
+     if(containsBook){
+         ListOfBooks originalList = new ListOfBooks();
+         originalLibraryList = originalList;
+
+//if(bookNumber == 3){
+// //           for(int i = 0; i < bookNumber; i++){
+////if
+//                if (newLibrary.library.bookList.get(bookNumber-1).bookNumber != bookNumber) {
+//                    System.out.println("enter contain");
+                   newLibrary.library.bookList.add(originalLibraryList.bookList.get(bookNumber - 1));
                     System.out.println("");
                     System.out.println("Thank you for returning the book!");
-                    System.out.println(newLibrary.library.bookList);
-                    newLibrary.checkOutMenu = "back";
-                }
-            }
+                    newLibrary.checkOutMenu = "backAfterReturn";
+
+//                }
+//            }
         }
         else {
             System.out.println("");
@@ -42,7 +53,7 @@ public class ReturnBook {
 
         }
 
-        return newLibrary.library.bookList;
+        return newLibrary;
     }
 
 }

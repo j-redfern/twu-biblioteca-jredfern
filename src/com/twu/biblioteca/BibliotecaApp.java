@@ -96,36 +96,71 @@ public class BibliotecaApp {
                     }
 
                     if(inputToContinue == "backAfterCheckout"){
-                        inputToContinue = checkOut.checkOutMenu;
                         menuOption.executeOption(inputToContinue);
 
                         input.hasNext();
                         String optionInput = input.nextLine().toLowerCase();
 
-                        boolean mainMenuInputValidate = mainMenuInput.validateStringDataInput(optionInput);
+                        DataInputValidation optionDataInput = new DataInputValidation();
+                        boolean optionDataInputValidate = optionDataInput.validateStringDataInput(optionInput);
 
-                        if (mainMenuInputValidate) {
+                        if (optionDataInputValidate) {
                             menuOption.executeOption(optionInput);
                             inputToContinue = menuOption.InputToContinue;
-                        } else {
-                            inputToContinue = "yes";
+                        }
+                        else {
+                            inputToContinue = "backAfterCheckout";
                             System.out.println("Select a valid option");
-                            menuOption.optionMenu2();
+
                         }
                     }
 
                     if(inputToContinue == "return"){
-                        if(InputValidate){
+
+                        input.hasNext();
+                        String returnInput = input.nextLine();
+
+                        DataInputValidation returnDataInput = new DataInputValidation();
+                        boolean returnDataInputValidate = returnDataInput.validateNumericDataInput(returnInput);
+
+                        if(returnDataInputValidate){
                             ReturnBook returnbook = new ReturnBook(checkOut);
-                            returnbook.returnABook(Integer.parseInt(lineThree));
+                            returnbook.returnABook(Integer.parseInt(returnInput));
+                            inputToContinue = checkOut.checkOutMenu;
+
+                        }
+                        else {
+                            System.out.println("Select a valid option");
+                            inputToContinue = "return";
+                            menuOption.executeOption(inputToContinue);
+                        }
+                    }
+
+                    if(inputToContinue == "backAfterReturn"){
+                        menuOption.executeOption(inputToContinue);
+
+                        input.hasNext();
+                        String optionInput = input.nextLine().toLowerCase();
+
+                        DataInputValidation optionDataInput = new DataInputValidation();
+                        boolean optionDataInputValidate = optionDataInput.validateStringDataInput(optionInput);
+
+                        if (optionDataInputValidate) {
+                            menuOption.executeOption(optionInput);
+                            inputToContinue = menuOption.InputToContinue;
+                        }
+                        else {
+                            inputToContinue = "backAfterReturn";
+                            System.out.println("Select a valid option");
+
                         }
                     }
                 }
             }
             else{
-                    System.out.print("Invalid user input");
-                    System.exit(0);
-                }
+                System.out.print("Invalid user input");
+                System.exit(0);
+            }
 
         }
         else {

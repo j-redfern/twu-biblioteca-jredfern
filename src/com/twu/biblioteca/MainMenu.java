@@ -17,8 +17,8 @@ public class MainMenu {
         System.out.println("---------------------------------");
         System.out.println("");
         System.out.println("To select the option, type the word(s) in the bracket");
-        System.out.println("");
         System.out.println("1. List books (books) ");
+//        System.out.println("2. To Return a book (return) ");
         System.out.println("2. To Quit (quit) ");
         InputToContinue = "yes";
         return InputToContinue;
@@ -40,6 +40,26 @@ public class MainMenu {
         return InputToContinue;
     }
 
+    public String optionMenu4(){
+        System.out.println("");
+        System.out.println("Please type the book number you wish to return");
+        InputToContinue = "return";
+        return InputToContinue;
+    }
+
+    public String optionMenu5(){
+        System.out.println("---------------------------------");
+        System.out.println("           Main Menu");
+        System.out.println("---------------------------------");
+        System.out.println("");
+        System.out.println("To select the option, type the word(s) in the bracket");
+        System.out.println("1. List books (books) ");
+        System.out.println("2. To Return a book (return) ");
+        System.out.println("3. To Quit (quit) ");
+        InputToContinue = "yes";
+        return InputToContinue;
+    }
+
     public void executeOption(String optionChoice){
 
         optionSelected = optionChoice;
@@ -57,9 +77,19 @@ public class MainMenu {
                 this.optionMenu1();
                 break;
 
+            case "backAfterCheckout":
+                this.optionMenu5();
+                InputToContinue = "yes";
+                break;
+
             case "out":
                 this.optionMenu3();
                 InputToContinue = "tryAgain";
+                break;
+
+            case "return":
+                this.optionMenu4();
+                InputToContinue = "return";
                 break;
 
             case "quit":

@@ -31,5 +31,18 @@ class MainMenuTest {
         test3.executeOption(optionChoice3);
         assertEquals("yes",test3.InputToContinue);
 
+        ListOfBooks list4 = new ListOfBooks();
+        String optionChoice4 = "backAfterCheckout";
+        MainMenu test4 = new MainMenu(list4);
+        test4.executeOption(optionChoice4);
+        assertEquals("yes",test4.InputToContinue);
+
+
+        ListOfBooks list5 = new ListOfBooks();
+        String optionChoice5 = "return";
+        MainMenu test5 = new MainMenu(list5);
+        test5.executeOption(optionChoice5);
+        assertEquals("return",test5.InputToContinue);
+
     }
 }

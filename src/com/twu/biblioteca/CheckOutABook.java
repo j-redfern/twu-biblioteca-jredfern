@@ -31,6 +31,7 @@ public class CheckOutABook {
                        library.bookList.remove(i);
                        System.out.println("");
                        System.out.println("Thank you! Enjoy the book");
+                       checkOutMenu = "backAfterCheckout";
                    }
                }
             }

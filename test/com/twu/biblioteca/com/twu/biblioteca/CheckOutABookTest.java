@@ -10,8 +10,6 @@ class CheckOutABookTest {
     void CheckCurrentBookCollectionDecrementsBy1() {
         ListOfBooks books = new ListOfBooks();
         List bookList = books.bookList;
-
-        System.out.println(bookList);
         CheckOutABook test = new CheckOutABook(books);
         List<ListOfBooks> result = test.checkOutABook(3);
         System.out.println(bookList.size());

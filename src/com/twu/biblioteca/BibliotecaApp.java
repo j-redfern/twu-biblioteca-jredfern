@@ -22,26 +22,23 @@ public class BibliotecaApp {
         if(userInputValidate){
 
             ListOfBooks books = new ListOfBooks();
+            MainMenu menuOption = new MainMenu(books);
 
             if(line.contains("customer")) {
-                System.out.println("---------------------------------");
-                System.out.println("           Main Menu");
-                System.out.println("---------------------------------");
-                System.out.println("");
-                System.out.println("To select the option, type the word(s) in the bracket");
-                System.out.println("1. List books (books) ");
-                System.out.println("2. To Quit (quit) ");
 
-                String inputToContinue = "yes";
+                String inputToContinue = "";
 
-                MainMenu menuOption = new MainMenu(books);
+                menuOption.optionMenu1();
+                inputToContinue = menuOption.InputToContinue;
+
+                DataInputValidation mainMenuInput = new DataInputValidation();
+
 
                 while (inputToContinue == "yes") {
 
                     input.hasNext();
                     String lineTwo = input.nextLine().toLowerCase();
 
-                    DataInputValidation mainMenuInput = new DataInputValidation();
                     boolean mainMenuInputValidate = mainMenuInput.validateStringDataInput(lineTwo);
 
                     if (mainMenuInputValidate) {
@@ -62,15 +59,16 @@ public class BibliotecaApp {
                 String lineThree = input.nextLine();
 
                 DataInputValidation checkoutInput = new DataInputValidation();
-                boolean checkoutInputValidate = checkoutInput.validateNumericDataInput(lineThree);
+                boolean InputValidate = checkoutInput.validateNumericDataInput(lineThree);
+
+                CheckOutABook checkOut = new CheckOutABook(books);
 
                 inputToContinue = "yes";
 
                 while (inputToContinue != null) {
 
                     if (inputToContinue == "yes") {
-                        if (checkoutInputValidate) {
-                            CheckOutABook checkOut = new CheckOutABook(books);
+                        if (InputValidate) {
                             checkOut.checkOutABook(Integer.parseInt(lineThree));
                             inputToContinue = checkOut.checkOutMenu ;
                         }
@@ -88,13 +86,38 @@ public class BibliotecaApp {
                         boolean bookNoInputValidate = bookNoInput.validateNumericDataInput(bookNumberInput);
 
                         if (bookNoInputValidate) {
-                            CheckOutABook checkOut = new CheckOutABook(books);
                             checkOut.checkOutABook(Integer.parseInt(bookNumberInput));
                             inputToContinue = checkOut.checkOutMenu;
 
                         } else {
                             System.out.print("Invalid input. Try again");
                             System.exit(0);
+                        }
+                    }
+
+                    if(inputToContinue == "backAfterCheckout"){
+                        inputToContinue = checkOut.checkOutMenu;
+                        menuOption.executeOption(inputToContinue);
+
+                        input.hasNext();
+                        String optionInput = input.nextLine().toLowerCase();
+
+                        boolean mainMenuInputValidate = mainMenuInput.validateStringDataInput(optionInput);
+
+                        if (mainMenuInputValidate) {
+                            menuOption.executeOption(optionInput);
+                            inputToContinue = menuOption.InputToContinue;
+                        } else {
+                            inputToContinue = "yes";
+                            System.out.println("Select a valid option");
+                            menuOption.optionMenu2();
+                        }
+                    }
+
+                    if(inputToContinue == "return"){
+                        if(InputValidate){
+                            ReturnBook returnbook = new ReturnBook(checkOut);
+                            returnbook.returnABook(Integer.parseInt(lineThree));
                         }
                     }
                 }

@@ -23,19 +23,13 @@ class MainMenuTest {
         String invalidOptionChoice = "out";
         MainMenu test2 = new MainMenu(list2);
         test2.executeOption(invalidOptionChoice);
-        assertEquals("no",test2.InputToContinue);
+        assertEquals("tryAgain",test2.InputToContinue);
 
         ListOfBooks list3 = new ListOfBooks();
         String optionChoice3 = "back";
         MainMenu test3 = new MainMenu(list3);
         test3.executeOption(optionChoice3);
         assertEquals("yes",test3.InputToContinue);
-
-        ListOfBooks list4 = new ListOfBooks();
-        String optionChoice4 = "out";
-        MainMenu test4 = new MainMenu(list4);
-        test4.executeOption(optionChoice4);
-        assertEquals("no", test4.InputToContinue);
 
     }
 }

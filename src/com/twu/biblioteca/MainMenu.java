@@ -37,7 +37,6 @@ public class MainMenu {
         System.out.println("");
         library.printCurrentBookCollection();
         System.out.println("Please type the book number you wish to check out");
-        InputToContinue = "tryAgain";
         return InputToContinue;
     }
 
@@ -60,7 +59,7 @@ public class MainMenu {
 
             case "out":
                 this.optionMenu3();
-                InputToContinue = "no";
+                InputToContinue = "tryAgain";
                 break;
 
             case "quit":
